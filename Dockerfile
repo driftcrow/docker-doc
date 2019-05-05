@@ -9,6 +9,11 @@ RUN apt-get update && apt-get install -y software-properties-common \
     graphviz \
     plantuml
 
+COPY setup.el .
+RUN emacs -batch -l setup.el
+
+ADD .emacs .emacs
+
 # clean up all temporary files
     apt-get purge software-properties-common &&\
     apt-get clean &&\
