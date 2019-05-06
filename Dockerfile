@@ -9,6 +9,14 @@ RUN apt-get update && apt-get install -y software-properties-common \
     graphviz \
     plantuml
 
+# ENV LANG C.UTF-8
+# RUN emacs --batch \
+# --eval "(require 'package)" \
+# --eval "(add-to-list 'package-archives '(\"melpa\" . \"http://melpa.org/packages/\") t)" \
+# --eval "(package-initialize)" \
+# --eval "(package-refresh-contents)" \
+# --eval "(package-install 'flycheck)"
+
 COPY setup.el .
 RUN emacs -batch -l setup.el
 
