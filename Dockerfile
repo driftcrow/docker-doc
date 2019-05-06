@@ -1,4 +1,4 @@
-FROM thomasweise/docker-texlive
+FROM thomasweise/texlive
 MAINTAINER Driftcrow <driftcrow@gmail.com>
 
 # Emacs
