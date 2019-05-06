@@ -23,7 +23,7 @@ RUN emacs -batch -l setup.el
 ADD .emacs .emacs
 
 # clean up all temporary files
-    apt-get purge software-properties-common &&\
+RUN apt-get purge software-properties-common &&\
     apt-get clean &&\
     apt-get autoclean -y &&\
     apt-get autoremove -y &&\
