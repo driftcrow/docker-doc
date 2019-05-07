@@ -19,7 +19,11 @@ RUN apt-get update && apt-get install -y software-properties-common \
 COPY setup.el .
 RUN emacs -batch -l setup.el
 
-ADD .emacs .emacs
+ADD .emacs /root/.emacs
+ADD fonts /root/.fonts
+ADD latex /root/texmf/tex/latex
+
+RUN fc-cache -f
 
 # clean up all temporary files
 RUN apt-get purge software-properties-common -y &&\
