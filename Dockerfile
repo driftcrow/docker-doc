@@ -5,7 +5,6 @@ MAINTAINER Driftcrow <driftcrow@gmail.com>
 RUN apt-get update && apt-get install -y software-properties-common \
     && apt-add-repository ppa:kelleyk/emacs \
     && apt-get update && apt-get install -y emacs26 \
-    org-mode \
     graphviz \
     plantuml
 
