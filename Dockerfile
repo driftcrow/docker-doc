@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y software-properties-common \
 ADD .emacs /root/.emacs
 ADD fonts /root/.fonts
 ADD latex /root/texmf/tex/latex
+ADD rclone /root/.config/rclone
 
 RUN fc-cache -f
 
