@@ -16,14 +16,16 @@ RUN apt-get update && apt-get install -y software-properties-common \
 # --eval "(package-refresh-contents)" \
 # --eval "(package-install 'flycheck)"
 
-COPY setup.el .
-RUN emacs -batch -l setup.el
-
 ADD .emacs /root/.emacs
 ADD fonts /root/.fonts
 ADD latex /root/texmf/tex/latex
 
 RUN fc-cache -f
+
+RUN curl https://rclone.org/install.sh | sudo bash
+
+COPY setup.el .
+RUN emacs -batch -l setup.el
 
 # clean up all temporary files
 RUN apt-get purge software-properties-common -y &&\
