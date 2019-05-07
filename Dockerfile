@@ -22,7 +22,13 @@ ADD latex /root/texmf/tex/latex
 
 RUN fc-cache -f
 
-RUN curl https://rclone.org/install.sh | sudo bash
+RUN curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip &&\
+    unzip rclone-current-linux-amd64.zip &&\
+    cd rclone-*-linux-amd64 &&\
+    cp rclone /usr/bin/ &&\
+    chown root:root /usr/bin/rclone &&\
+    chmod 755 /usr/bin/rclone &&\
+    cd ..
 
 COPY setup.el .
 RUN emacs -batch -l setup.el
